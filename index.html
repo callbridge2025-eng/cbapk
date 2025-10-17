@@ -194,13 +194,15 @@
         <button id="loginBtn" class="btn call" style="flex:1">Login</button>
         <button id="loginCancelBtn" class="btn gray" style="flex:1;display:none">Cancel</button>
       </div>
-      <div id="loginError" class="muted" style="color:var(--danger);margin-top:10px;display:none"></div>
-      <div style="margin-top:12px;font-size:13px;color:var(--muted);text-align:center">
-  Don’t have an account? Request new access at
-  <a href="mailto:callbridge.2025@gmail.com" style="color:var(--accent);text-decoration:none;font-weight:500">
-    callbridge.2025@gmail.com
-  </a>
+      <div style="margin-top:12px">
+  <button id="getAccessBtn" class="btn gray" style="width:100%">
+    Request Access
+  </button>
+  <div class="muted" style="font-size:12px;margin-top:6px;text-align:center">
+    Don’t have an account? Request new access here.
+  </div>
 </div>
+
 
     </div>
   </div>
@@ -763,6 +765,14 @@ $("speakerBtn").addEventListener("click", toggleSpeaker);
 /* Login modal listeners */
 $("loginBtn").addEventListener("click", performLogin);
 $("loginPassword")?.addEventListener && $("loginPassword").addEventListener("keydown",(e)=>{ if(e.key==='Enter') performLogin(); });
+$("getAccessBtn").addEventListener("click", () => {
+  window.open(
+    "https://docs.google.com/forms/d/e/1FAIpQLSdGnHzyl-AHN8q6VjRmqeqo9dgIQu5PkQTv-8RULqudUD0D5w/viewform?usp=header",
+    "_blank",
+    "noopener"
+  );
+});
+
 
 /* ---------- after login ---------- */
 async function postLoginInit(){
