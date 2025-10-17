@@ -8,6 +8,40 @@
   <!-- Twilio Voice SDK v2 (blocking load so window.Twilio is available) -->
   <script src="https://unpkg.com/@twilio/voice-sdk@2.16.0/dist/twilio.min.js"></script>
 
+  /* Bottom tabs */
+.bottom-tabs { display: none; }
+
+@media (max-width: 900px){
+  /* Make space so the bar doesn't cover content */
+  .panel { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px) + 56px); }
+
+  .bottom-tabs{
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 56px;
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    z-index: 9999;
+  }
+
+  .bottom-tabs .tab-btn{
+    flex: 1 1 0;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    background: #f3f4f6;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+  }
+
+  .bottom-tabs .tab-btn + .tab-btn { border-left: 1px solid #e5e7eb; }
+  .bottom-tabs .tab-btn:active { background: #e5e7eb; }
+}
+
   <style>
     :root{
       --bg:#f4f6f9; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --green:#10b981;
