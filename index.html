@@ -97,6 +97,14 @@
       <div class="muted">Tech Talk Titans</div>
     </div>
 
+    <!-- Quick-jump tabs (shown mainly on mobile for horizontal swipe layout) -->
+<div class="nav-tabs" style="display:flex; gap:8px; margin:8px 0; justify-content:center">
+  <button class="btn gray" onclick="window.scrollTo({ left: 0, behavior: 'smooth' })">Dialpad</button>
+  <button class="btn gray" onclick="window.scrollTo({ left: window.innerWidth, behavior: 'smooth' })">History</button>
+  <button class="btn gray" onclick="window.scrollTo({ left: 2 * window.innerWidth, behavior: 'smooth' })">Profile</button>
+</div>
+
+
     <div style="text-align:center">
       <div class="muted">Your Virtual Number</div>
       <div id="callerNumber">Loading...</div>
