@@ -56,7 +56,31 @@
     }
 
     .ringDot{width:72px;height:72px;border-radius:50%;background:var(--green);margin:10px auto;animation:pulse 1.2s infinite}
-    @media (max-width:900px){body{grid-template-columns:1fr;} }
+    @media (max-width: 900px){
+  html, body { height: 100%; overflow: hidden; }
+  /* Turn the main page into a horizontal strip */
+  body{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    padding: 0;                 /* remove outer padding for full-bleed pages */
+    overflow-x: auto;           /* enable horizontal scroll */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* smooth on Android/iOS */
+    background: var(--bg);
+  }
+  /* Each panel becomes a full-screen “page” */
+  .panel{
+    min-width: 100vw;           /* full viewport width */
+    height: 100vh;              /* full viewport height */
+    border-radius: 0;           /* flat edges for full-bleed */
+    box-shadow: none;           /* optional: remove shadow for app-like feel */
+    scroll-snap-align: start;   /* snap each page to the left edge */
+    padding: 16px;              /* inner padding */
+  }
+}
+
 
     /* Login modal overrides (keeps the same card style) */
     #loginModal{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.5);z-index:10000;align-items:center;justify-content:center}
