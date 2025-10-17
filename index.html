@@ -8,6 +8,40 @@
   <!-- Twilio Voice SDK v2 (blocking load so window.Twilio is available) -->
   <script src="https://unpkg.com/@twilio/voice-sdk@2.16.0/dist/twilio.min.js"></script>
 
+  /* Bottom tabs hidden on desktop */
+.bottom-tabs { display: none; }
+
+@media (max-width: 900px){
+  /* Give panels bottom space so tabs don’t cover content */
+  .panel { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px) + 56px); }
+
+  .bottom-tabs{
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 56px;
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    z-index: 9999;
+  }
+
+  .bottom-tabs .tab-btn{
+    flex: 1 1 0;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    background: #f3f4f6;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+  }
+
+  .bottom-tabs .tab-btn + .tab-btn { border-left: 1px solid #e5e7eb; }
+  .bottom-tabs .tab-btn:active { background: #e5e7eb; }
+}
+
   <style>
     :root{
       --bg:#f4f6f9; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --green:#10b981;
@@ -96,13 +130,6 @@
       <h2>Call Bridge</h2>
       <div class="muted">Tech Talk Titans</div>
     </div>
-
-    <!-- Quick-jump tabs (shown mainly on mobile for horizontal swipe layout) -->
-<div class="nav-tabs" style="display:flex; gap:8px; margin:8px 0; justify-content:center">
-  <button class="btn gray" onclick="window.scrollTo({ left: 0, behavior: 'smooth' })">Dialpad</button>
-  <button class="btn gray" onclick="window.scrollTo({ left: window.innerWidth, behavior: 'smooth' })">History</button>
-  <button class="btn gray" onclick="window.scrollTo({ left: 2 * window.innerWidth, behavior: 'smooth' })">Profile</button>
-</div>
 
 
     <div style="text-align:center">
@@ -836,5 +863,18 @@ window.addEventListener("pagehide", () => {
   
 init();
 </script>
+<!-- Bottom tabs (mobile only) -->
+<div class="bottom-tabs">
+  <button class="tab-btn" onclick="window.scrollTo({ left: 0, behavior: 'smooth' })">
+    Dialpad
+  </button>
+  <button class="tab-btn" onclick="window.scrollTo({ left: window.innerWidth, behavior: 'smooth' })">
+    Call History
+  </button>
+  <button class="tab-btn" onclick="window.scrollTo({ left: 2 * window.innerWidth, behavior: 'smooth' })">
+    My Profile
+  </button>
+</div>
+
 </body>
 </html>
