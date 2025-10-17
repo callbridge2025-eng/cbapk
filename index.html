@@ -828,47 +828,6 @@ window.addEventListener("pagehide", () => {
 
   
 init();
-  /* Bottom tabs */
-.bottom-tabs { display: none; }
-
-@media (max-width: 900px){
-  /* Make space so the bar doesn't cover content */
-  .panel { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px) + 56px); }
-
-  .bottom-tabs{
-    display: flex;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 56px;
-    background: #fff;
-    border-top: 1px solid #e5e7eb;
-    z-index: 9999;
-  }
-
-  .bottom-tabs .tab-btn{
-    flex: 1 1 0;
-    border: none;
-    margin: 0;
-    border-radius: 0;
-    background: #f3f4f6;
-    font-weight: 600;
-    font-size: 14px;
-    color: #374151;
-  }
-
-  .bottom-tabs .tab-btn + .tab-btn { border-left: 1px solid #e5e7eb; }
-  .bottom-tabs .tab-btn:active { background: #e5e7eb; }
-}
-
 </script>
-<!-- Bottom tabs (mobile only) -->
-<div class="bottom-tabs">
-  <button class="tab-btn" onclick="window.scrollTo({ left: 0, behavior: 'smooth' })">Dialpad</button>
-  <button class="tab-btn" onclick="window.scrollTo({ left: window.innerWidth, behavior: 'smooth' })">Call History</button>
-  <button class="tab-btn" onclick="window.scrollTo({ left: 2 * window.innerWidth, behavior: 'smooth' })">My Profile</button>
-</div>
-
 </body>
 </html>
