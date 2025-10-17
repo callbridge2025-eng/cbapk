@@ -195,13 +195,21 @@
         <button id="loginCancelBtn" class="btn gray" style="flex:1;display:none">Cancel</button>
       </div>
       <div style="margin-top:12px">
-  <button id="getAccessBtn" class="btn gray" style="width:100%">
+  <a
+    id="getAccessLink"
+    class="btn gray"
+    href="https://docs.google.com/forms/d/e/1FAIpQLSdGnHzyl-AHN8q6VjRmqeqo9dgIQu5PkQTv-8RULqudUD0D5w/viewform?usp=header"
+    target="_blank"
+    rel="noopener"
+    style="display:block;width:100%;text-align:center"
+  >
     Request Access
-  </button>
+  </a>
   <div class="muted" style="font-size:12px;margin-top:6px;text-align:center">
     Don’t have an account? Request new access here.
   </div>
 </div>
+
 <div style="margin-top:14px;font-size:13px;text-align:center;color:var(--muted)">
   <div style="font-weight:600;color:#111827">Contact Support</div>
   <div>📞 +1(803)346-6904</div>
@@ -774,13 +782,6 @@ $("speakerBtn").addEventListener("click", toggleSpeaker);
 /* Login modal listeners */
 $("loginBtn").addEventListener("click", performLogin);
 $("loginPassword")?.addEventListener && $("loginPassword").addEventListener("keydown",(e)=>{ if(e.key==='Enter') performLogin(); });
-$("getAccessBtn").addEventListener("click", () => {
-  window.open(
-    "https://docs.google.com/forms/d/e/1FAIpQLSdGnHzyl-AHN8q6VjRmqeqo9dgIQu5PkQTv-8RULqudUD0D5w/viewform?usp=header",
-    "_blank",
-    "noopener"
-  );
-});
 
 
 /* ---------- after login ---------- */
